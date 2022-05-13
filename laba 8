@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+
+//Console.OutputEncoding = System.Text.Encoding.Unicode;
+//Console.InputEncoding = System.Text.Encoding.Unicode;
+
+namespace For_Me_NET
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Action<Func<int>, char, char> SomeDelegate = (SomeFunction, first, second) =>
+            {
+                SomeFunction();
+                Console.WriteLine("symbol: " + first + "\n and \nsymbol: " + second);
+            };
+
+            Func<int> sd = () =>
+            {
+                Console.WriteLine(int.MinValue);
+                return int.MinValue;
+            };
+            SomeDelegate(sd, 'a', 'b');
+        }
+    }
+}
